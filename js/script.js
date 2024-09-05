@@ -10,4 +10,3 @@ if (window.innerWidth <= 768) {
     // Activate the first section by default
     sections[0].classList.add('active');
 }
-// ini selesai
