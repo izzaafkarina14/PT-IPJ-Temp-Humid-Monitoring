@@ -31,11 +31,11 @@
                 <div class="section" id="inSection">
                     <div class="section-header">IN</div>
                     <div class="data-item">
-                        <div class="temp-humid">80°C | 76%</div>
+                        <div class="temp-humid" id="inP1">80°C | 76%</div>
                         <div class="location">P1</div>
                     </div>
                     <div class="data-item">
-                        <div class="temp-humid">80°C | 76%</div>
+                        <div class="temp-humid" id="inP2">80°C | 76%</div>
                         <div class="location">P2</div>
                     </div>
                 </div>
@@ -44,11 +44,11 @@
                 <div class="section" id="outSection">
                     <div class="section-header">OUT</div>
                     <div class="data-item">
-                        <div class="temp-humid">80°C</div>
+                        <div class="temp-humid" id="outP1">80°C</div>
                         <div class="location">P1</div>
                     </div>
                     <div class="data-item">
-                        <div class="temp-humid">80°C</div>
+                        <div class="temp-humid" id="outP2">80°C</div>
                         <div class="location">P2</div>
                     </div>
                 </div>
@@ -57,17 +57,21 @@
                 <div class="section" id="roomSection">
                     <div class="section-header">ROOM</div>
                     <div class="data-item">
-                        <div class="temp-humid">80°C | 76%</div>
+                        <div class="temp-humid" id="roomP1">80°C | 76%</div>
                         <div class="location">P1</div>
                     </div>
                     <div class="data-item">
-                        <div class="temp-humid">80°C | 76%</div>
+                        <div class="temp-humid" id="roomP2">80°C | 76%</div>
                         <div class="location">P2</div>
                     </div>
                 </div>
             </div>                 
         </div>
     </main>
+
+    <!-- Menambahkan Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
     <!-- CUSTOM JS LINK -->
     <script src="./js/script.js"></script>
