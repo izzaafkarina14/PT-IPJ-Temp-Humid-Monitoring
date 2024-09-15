@@ -11,9 +11,8 @@ if (window.innerWidth <= 768) {
     sections[0].classList.add('active');
 }
 
-{
-    // Import the functions you need from the SDKs you need
-// import { initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, onValue } from "firebase/database";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -30,10 +29,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-}
-
-// Mendapatkan referensi dari database firebase
-let database = firebase.database();
+const database = getDatabase(app);
 
 // Ambil referensi ke lokasi data di Firebase
 const inP1TempRef = database.ref('/IN/P1/Temperature');
@@ -58,49 +54,49 @@ function updateData(location, temperature, humidity = null) {
 }
 
 // Listener real-time untuk IN P1
-inP1TempRef.on('value', (snapshot) => {
+onValue(inP1TempRef, (snapshot) => {
     const temperature = snapshot.val();
-    inP1HumRef.once('value').then((humiditySnapshot) => {
+    onValue(inP1HumRef, (humiditySnapshot) => {
         const humidity = humiditySnapshot.val();
-        updateData('inSection .data-item:nth-child(1)', temperature, humidity);
+        updateData('inP1', temperature, humidity);
     });
 });
 
 // Listener real-time untuk IN P2
-inP2TempRef.on('value', (snapshot) => {
+onValue(inP2TempRef, (snapshot) => {
     const temperature = snapshot.val();
-    inP2HumRef.once('value').then((humiditySnapshot) => {
+    onValue(inP2HumRef, (humiditySnapshot) => {
         const humidity = humiditySnapshot.val();
-        updateData('inSection .data-item:nth-child(2)', temperature, humidity);
+        updateData('inP2', temperature, humidity);
     });
 });
 
 // Listener real-time untuk OUT P1
-outP1TempRef.on('value', (snapshot) => {
+onValue(outP1TempRef, (snapshot) => {
     const temperature = snapshot.val();
-        updateData('outSection .data-item:nth-child(1)', temperature);
+    updateData('outP1', temperature);
     });
 
 // Listener real-time untuk OUT P2
-outP2TempRef.on('value', (snapshot) => {
+onValue(outP2TempRef, (snapshot) => {
     const temperature = snapshot.val();
-        updateData('outSection .data-item:nth-child(2)', temperature);
+    updateData('outP2', temperature);
     });
 
 // Listener real-time untuk ROOM P1
-roomP1TempRef.on('value', (snapshot) => {
+onValue(roomP1TempRef, (snapshot) => {
     const temperature = snapshot.val();
-    roomP1HumRef.once('value').then((humiditySnapshot) => {
+    onValue(roomP1HumRef, (humiditySnapshot) => {
         const humidity = humiditySnapshot.val();
-        updateData('roomSection .data-item:nth-child(1)', temperature, humidity);
+        updateData('roomP1', temperature, humidity);
     });
 });
 
 // Listener real-time untuk IN P2
-roomP2TempRef.on('value', (snapshot) => {
+onValue(roomP2TempRef, (snapshot) => {
     const temperature = snapshot.val();
-    roomP2HumRef.once('value').then((humiditySnapshot) => {
+    onValue(roomP2HumRef, (humiditySnapshot) => {
         const humidity = humiditySnapshot.val();
-        updateData('roomSection .data-item:nth-child(2)', temperature, humidity);
+        updateData('roomP2', temperature, humidity);
     });
 });
