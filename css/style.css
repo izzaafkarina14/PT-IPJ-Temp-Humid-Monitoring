@@ -85,15 +85,22 @@ body {
     text-align: center;
 }
 
-.temp-humid {
+.temp {
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #484040;
+    color: #1a2292;
+}
+
+.humid {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #10b61e;
 }
 
 .location {
-    color: #46B87A;
+    color: #f12323;
     font-weight: bold;
     font-size: 25px;
 }
