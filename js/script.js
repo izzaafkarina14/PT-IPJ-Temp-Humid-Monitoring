@@ -1,16 +1,3 @@
-// For mobile view
-if (window.innerWidth <= 768) {
-  const sections = document.querySelectorAll(".section");
-  sections.forEach((section) => {
-    section.querySelector(".section-header").addEventListener("click", () => {
-      sections.forEach((s) => s.classList.remove("active"));
-      section.classList.add("active");
-    });
-  });
-  // Activate the first section by default
-  sections[0].classList.add("active");
-}
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
 // import { getDatabase, ref, onValue } from "firebase/database";
@@ -99,3 +86,16 @@ roomP2HumRef.on("value", function (getdata10) {
   let humi = getdata10.val();
   document.getElementById("humidity-room-p2").innerHTML = humi + "%";
 });
+
+// For mobile view
+if (window.innerWidth <= 768) {
+    const sections = document.querySelectorAll(".section");
+    sections.forEach((section) => {
+      section.querySelector(".section-header").addEventListener("click", () => {
+        sections.forEach((s) => s.classList.remove("active"));
+        section.classList.add("active");
+      });
+    });
+    // Activate the first section by default
+    sections[0].classList.add("active");
+  }
