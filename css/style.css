@@ -33,8 +33,9 @@ body {
 .logo {
     background-color: #FFFFFF;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 40%;
+    height: auto;
+    max-width: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,6 +108,19 @@ body {
 
 /* MEDIA QUERY FOR MOBILE */
 @media (max-width: 768px) {
+    .company-name {
+        font-size: 20px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .logo {
+        height: 40px;
+        width: 40px;
+    }
+    
     .content {
         flex-direction: column;
     }
